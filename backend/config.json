@@ -1,0 +1,10 @@
+{
+  "smtpOptions":{
+    "service": "gmail",
+  "auth": {
+    "user": "nandishtestmail@gmail.com",
+    "pass": "TestMail@2"
+  }
+  }
+
+}

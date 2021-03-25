@@ -1,0 +1,49 @@
+<div class="jumbotron">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-6 offset-md-3">
+              <h3></h3>
+              <mat-card>
+                <form  [formGroup]="panDetailsForm"  (ngSubmit)="onSubmit()">
+                  <div class="form-group">
+                    <label>Pan Number</label>
+                    <input type="text" class="form-control"  formControlName="pannumber" [ngClass]="{ 'is-invalid': submitted && f.pannumber.errors }" />
+                    <div *ngIf="submitted && f.pannumber.errors" class="invalid-feedback">
+                        <div *ngIf="f.pannumber.errors.required">pan number is required</div>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                  <label>Name as per Pan Details</label>
+                  <input type="text" class="form-control" formControlName="panname" [ngClass]="{ 'is-invalid': submitted && f.panname.errors }" />
+                  <div *ngIf="submitted && f.panname.errors" class="invalid-feedback">
+                      <div *ngIf="f.panname.errors.required">pan name is required</div>
+                  </div>
+
+              </div>
+
+              <div class="form-group">
+                <label>Date Of birth as per Pan Details </label>
+                <input type="text" class="form-control" formControlName="dateofbirth" [ngClass]="{ 'is-invalid': submitted && f.dateofbirth.errors }" />
+                <div *ngIf="submitted && f.dateofbirth.errors" class="invalid-feedback">
+                    <div *ngIf="f.dateofbirth.errors.required">dateofbirth is required</div>
+                </div>
+
+            </div>
+            <div class="form-group">
+              <label>Pan card (format:pdf) </label><br>
+            <button  mat-mat-stroked-button type="button" (click)="filepicker.click()">
+              Pick pan pdf
+            </button>
+            <input type="file" #filepicker (change) = "Pickedpdf($event)">
+
+            </div>
+            <button class="full-width" mat-button color="accent" type="submit">Submit</button>
+
+                </form>
+                </mat-card>
+            </div>
+          </div>
+      </div>
+  </div>
